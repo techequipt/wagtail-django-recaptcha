@@ -3,6 +3,7 @@ from __future__ import absolute_import, unicode_literals
 import wagtail
 from django.utils.module_loading import import_string
 from captcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV2Checkbox
 from .settings import WAGTAIL_RECAPTCHA_WIDGET
 
 if wagtail.VERSION >= (2, 0):
@@ -20,7 +21,7 @@ class WagtailCaptchaFormBuilder(FormBuilder):
         try:
             recaptcha_widget = import_string(WAGTAIL_RECAPTCHA_WIDGET)
         except ImportError:
-            recaptcha_widget = None
+            recaptcha_widget = ReCaptchaV2Checkbox
 
         fields = super(WagtailCaptchaFormBuilder, self).formfields
         fields[self.CAPTCHA_FIELD_NAME] = ReCaptchaField(
