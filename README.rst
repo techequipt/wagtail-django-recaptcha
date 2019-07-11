@@ -39,12 +39,12 @@ Example
     from wagtail.contrib.forms.models import AbstractFormField
     from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
     from wagtail.core.fields import RichTextField
-    
+
     # Or, if using Wagtail < 2.0
     #from wagtail.wagtailforms.models import AbstractFormField
     #from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
     #from wagtail.wagtailcore.fields import RichTextField
-    
+
     from modelcluster.fields import ParentalKey
 
     from wagtailcaptcha.models import WagtailCaptchaEmailForm
@@ -94,6 +94,24 @@ If you need to customise the behaviour of the form builder, make sure to inherit
         # The rest of the page definition as usual...
 
 For a more thorough example, `Made with Wagtail <http://madewithwagtail.org/>`_ (`github.com/springload/madewithwagtail <https://github.com/springload/madewithwagtail>`_) is an example of an open-source site using this module.
+
+Settings
+~~~~~~~~~
+
+Recaptcha field optionally allows you to override the recaptcha widget to use via the django setting `WAGTAIL_RECAPTCHA_WIDGET`.
+Valid options for this setting are:
+.. code-block:: python
+
+    # Default "I'm not a robot" recaptcha v2 checkbox
+    WAGTAIL_RECAPTCHA_WIDGET = "captcha.widgets.ReCaptchaV2Checkbox"
+
+    # Invisible recaptcha v2 checkbox
+    WAGTAIL_RECAPTCHA_WIDGET = "captcha.widgets.ReCaptchaV2Invisible"
+
+    # Recaptcha V3
+    WAGTAIL_RECAPTCHA_WIDGET = "captcha.widgets.ReCaptchaV3"
+
+You may also provide for your own widget implementation using this method.
 
 Development
 -----------
