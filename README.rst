@@ -100,16 +100,21 @@ Settings
 
 Recaptcha field optionally allows you to override the recaptcha widget to use via the django setting `WAGTAIL_RECAPTCHA_WIDGET`.
 Valid options for this setting are:
-.. code-block:: python
 
-    # Default "I'm not a robot" recaptcha v2 checkbox
-    WAGTAIL_RECAPTCHA_WIDGET = "captcha.widgets.ReCaptchaV2Checkbox"
 
-    # Invisible recaptcha v2 checkbox
-    WAGTAIL_RECAPTCHA_WIDGET = "captcha.widgets.ReCaptchaV2Invisible"
+Default "I'm not a robot" recaptcha v2 checkbox
 
-    # Recaptcha V3
-    WAGTAIL_RECAPTCHA_WIDGET = "captcha.widgets.ReCaptchaV3"
+`WAGTAIL_RECAPTCHA_WIDGET = "captcha.widgets.ReCaptchaV2Checkbox"`
+
+
+Invisible recaptcha v2 checkbox
+
+`WAGTAIL_RECAPTCHA_WIDGET = "captcha.widgets.ReCaptchaV2Invisible"`
+
+
+Recaptcha V3
+
+`WAGTAIL_RECAPTCHA_WIDGET = "captcha.widgets.ReCaptchaV3"`
 
 You may also provide for your own widget implementation using this method.
 
